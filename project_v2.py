@@ -1,4 +1,4 @@
-__author__ = 'JYP'
+__author__ = 'Kai Kang'
 import numpy
 import pygame
 from math import *
@@ -31,7 +31,7 @@ def load_texture(texture_path):
     width, height = texture_surface.get_rect().size
     gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, texture_data)
 
-#---------------- class readfile
+
 class readfile():
     def __init__(self,name):
         self.filename = name
@@ -212,6 +212,7 @@ def save_contours(contours):
         pygame.image.save(this_contour, filename)
         pygame.display.flip()
     print 'Done!'
+    
     #----------------
     pygame.init()
     glutInit()

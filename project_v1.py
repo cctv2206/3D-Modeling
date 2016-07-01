@@ -46,7 +46,7 @@ def load_texture(texture_path):
     width, height = texture_surface.get_rect().size
     gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, texture_data)
 
-#class readfile
+
 class readfile():
     def __init__(self,name):
         self.filename = name
@@ -79,16 +79,18 @@ def cal_point(triangle, plane):
     for i in range(3):
         threepoints.append(maping[0][triangle[i]-1])
         ys.append(maping[0][triangle[i]-1][1])
-    #case 1 the triangle has nothing to do with the plane
+
+    #case 1 : the triangle has nothing to do with the plane
     if max(ys) <= yset[plane + 1] or min(ys) >= yset[plane + 1]:
         return
+    
     #for every line of a triangle
     for j in range(3):
         k1 = j
         k2 = j + 1
         if j == 2:
             k2 = 0
-        #case 2 if the triangle has two points on the plane
+        #case 2 : if the triangle has two points on the plane
         if yset[plane + 1] in ys:
             print 'some points on the plane'
             if ys[k1] == ys[k2] == yset[plane + 1]:
@@ -97,7 +99,7 @@ def cal_point(triangle, plane):
                 print 'some line on the plane'
                 return
 
-        #case 3 this is the general case
+        #case 3 : the general case
         if ys[k1] < yset[plane + 1] < ys[k2] or ys[k2] < yset[plane + 1] < ys[k1]:
             t = (threepoints[k2][1] - yset[plane + 1])/(threepoints[k2][1] - threepoints[k1][1])
             ipoint = []
@@ -116,16 +118,19 @@ for i in maping[0]:
     yall.append(i[1])
 ymax = max(yall)
 ymin = min(yall)
+
 #input how many slices to cut into
 print 'How many slices do you want to cut the model into?'
 print 'Please input a number:'
 number = input()
 n = int(number)/1.0
+
 #each slice
 deltay = (ymax - ymin)/n
 yset = []
 for i in range(int(n)):
     yset.append(ymin + i*deltay)
+
 #for the contour list
 contour = []
 for i in range(int(n-1)):
@@ -145,7 +150,8 @@ def draw():
     glDisable(GL_TEXTURE_2D) #Disable Texture in order to use color
     glColor3f(1.0, 1.0, 1.0) #white plane not sure this thing will work
     glLineWidth(2) #Line Width
-    #want to draw some colorful lines
+    
+    # Want to draw some colorful lines
     cc = 1.0/n
     nn = 0
     for c in contour:
@@ -156,7 +162,7 @@ def draw():
             glVertex3f(i[1][0], i[1][1], i[1][2])
         glEnd()
         nn += 1
-    #will not do any mapping
+    # will not do any mapping
 
 #this is for export the contours
 def export_contours(contours):
@@ -177,8 +183,7 @@ def export_contours(contours):
         print("file {} has been saved".format(filename))
         pygame.display.flip()
     print 'All contour files has been saved successfully!'
-    #have to add these here
-    #dont know why
+
     pygame.init()
     glutInit()
     pygame.display.set_mode(SCREEN_SIZE, HWSURFACE|OPENGL|DOUBLEBUF)
@@ -190,9 +195,9 @@ def export_contours(contours):
     gluLookAt(*H)
     glMatrixMode(GL_MODELVIEW)
     glLoadIdentity()
-    #######################
 
-#draw the botton
+
+# Draw the botton
 def draw2():
     glColor3f(0.5, 0.5, 0.5)
     glBegin(GL_POLYGON)

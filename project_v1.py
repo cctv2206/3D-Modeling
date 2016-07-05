@@ -92,11 +92,11 @@ def cal_point(triangle, plane):
             k2 = 0
         #case 2 : if the triangle has two points on the plane
         if yset[plane + 1] in ys:
-            print 'some points on the plane'
+            print ('some points on the plane')
             if ys[k1] == ys[k2] == yset[plane + 1]:
                 thisline.append(threepoints[k1])
                 thisline.append(threepoints[k2])
-                print 'some line on the plane'
+                print ('some line on the plane')
                 return
 
         #case 3 : the general case
@@ -120,8 +120,8 @@ ymax = max(yall)
 ymin = min(yall)
 
 #input how many slices to cut into
-print 'How many slices do you want to cut the model into?'
-print 'Please input a number:'
+print ('How many slices do you want to cut the model into?')
+print ('Please input a number:')
 number = input()
 n = int(number)/1.0
 
@@ -182,7 +182,7 @@ def export_contours(contours):
         pygame.image.save(this_contour, filename)
         print("file {} has been saved".format(filename))
         pygame.display.flip()
-    print 'All contour files has been saved successfully!'
+    print ('All contour files has been saved successfully!')
 
     pygame.init()
     glutInit()

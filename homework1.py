@@ -91,7 +91,7 @@ def main():
     canvas = pygame.Surface(CANVAS)                              # Initialize a Surface object
     canvas.fill(CANVAS_BACKGROUND)                               # Fill a Surface object with default color
 
-    print draw_circle(canvas)
+    print(draw_circle(canvas))
     while True:                                                                    #Main Loop
         for event in pygame.event.get():                               #Events Handling
             if event.type == QUIT:

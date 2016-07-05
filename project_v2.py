@@ -211,13 +211,13 @@ def save_contours(contours):
         nnn += 1
         pygame.image.save(this_contour, filename)
         pygame.display.flip()
-    print 'Done!'
+    print ('Done!')
     
     #----------------
     pygame.init()
     glutInit()
     pygame.display.set_mode(SCREEN_SIZE, HWSURFACE|OPENGL|DOUBLEBUF)
-    pygame.display.set_caption('JYP')
+    pygame.display.set_caption('Kai Kang')
     glEnable(GL_DEPTH_TEST)
     glDepthFunc(GL_LESS)
     glMatrixMode(GL_PROJECTION)
@@ -233,7 +233,7 @@ def main():
     pygame.init()
     glutInit()
     pygame.display.set_mode(SCREEN_SIZE, HWSURFACE|OPENGL|DOUBLEBUF)
-    pygame.display.set_caption('JYP')
+    pygame.display.set_caption('Kai Kang')
     glEnable(GL_DEPTH_TEST)
     glDepthFunc(GL_LESS)
     glMatrixMode(GL_PROJECTION)
